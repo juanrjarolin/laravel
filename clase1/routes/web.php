@@ -13,6 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//function anonima
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+
+    return "Hola mundo";
 });
+
+Route::get('home', function () {
+    return "Este es el home";
+});
+
+//con un parametro
+Route::get('users/{id}', function ($id) {
+    return "Viendo usuario id ".$id;
+});
+
+//mas de un parametro con expresiones regulares
+Route::get('users/{id}/{nombre}', function ($id, $nombre) {
+    return "Usuario con id " . $id. " con nombre: ".$nombre;
+})->where('nombre', '[a-zA-Z]+');
